@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "PINGPONG | LOGIN" %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Pingpong">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= yield :head %>
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :devise, "data-turbo-track": "reload" %>
+    <%= javascript_include_tag :devise, "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body class="hold-transition login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <%= link_to 'https://www.fortaleza.ce.gov.br', class: '', style: '', target: '_blank' do %>
+          <%= image_tag 'dist/img/AdminLTELogo.png', class: 'mb-3', alt: 'PING PONG' %>
+        <% end %>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

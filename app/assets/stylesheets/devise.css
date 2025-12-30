@@ -1,0 +1,7 @@
+@import url("plugins/fontawesome-free/css/all.min.css");
+@import url("plugins/icheck-bootstrap/icheck-bootstrap.min.css");
+@import url("dist/css/adminlte.min.css");
+
+.login-box {
+  width: 450px;
+}
