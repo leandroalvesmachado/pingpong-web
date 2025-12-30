@@ -69,3 +69,6 @@ end
 
 # Loads environment variables from `.env`.
 gem "dotenv", "~> 3.2"
+
+# Flexible authentication solution for Rails with Warden
+gem "devise", "~> 4.9", ">= 4.9.4"

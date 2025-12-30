@@ -90,18 +90,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: pingpong_production
-    username: pingpong
-    password: <%= ENV["PINGPONG_DATABASE_PASSWORD"] %>
+    database: pingpong
+    username: <%= ENV["DATABASE_USERNAME"] %>
+    password: <%= ENV["DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
-    database: pingpong_production_cache
+    database: pingpong_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: pingpong_production_queue
+    database: pingpong_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: pingpong_production_cable
+    database: pingpong_cable
     migrations_paths: db/cable_migrate
