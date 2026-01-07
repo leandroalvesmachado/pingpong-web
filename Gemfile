@@ -72,3 +72,6 @@ gem "dotenv", "~> 3.2"
 
 # Flexible authentication solution for Rails with Warden
 gem "devise", "~> 4.9", ">= 4.9.4"
+
+# A framework for building reusable, testable & encapsulated view components in Ruby on Rails.
+gem "view_component", "~> 4.1", ">= 4.1.1"
