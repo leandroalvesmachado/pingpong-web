@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "PINGPONG | LOGIN" %></title>
+    <title><%= content_for(:title) || "PINGPONG | Administração" %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,18 +16,25 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :devise, "data-turbo-track": "reload" %>
-    <%= javascript_include_tag :devise, "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag :admin, "data-turbo-track": "reload" %>
+    <%= javascript_include_tag :admin %>
     <%= javascript_importmap_tags %>
   </head>
-  <body class="hold-transition login-page">
-    <div class="login-box">
-      <div class="login-logo">
-        <%= link_to 'https://www.fortaleza.ce.gov.br', class: '', style: '', target: '_blank' do %>
-          <%= image_tag 'dist/img/AdminLTELogo.png', class: 'mb-3', alt: 'PING PONG' %>
-        <% end %>
+  <body class="hold-transition layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="wrapper">
+      <%= render partial: "layouts/shared/preloader" %>
+      <%= render partial: "layouts/shared/admin/navbar" %>
+      <%= render partial: "layouts/shared/admin/sidebar" %>
+      <div class="content-wrapper">
+        <%= yield :breadcrumb %>
+        <section class="content">
+          <div class="container-fluid">
+            <%= yield %>
+          </div>
+        </section>
       </div>
-      <%= yield %>
+      <%= render partial: "layouts/shared/admin/footer" %>
     </div>
+    <%= yield :modal %>
   </body>
 </html>

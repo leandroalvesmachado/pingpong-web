@@ -1,2 +1,90 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="row">
+  <div class="offset-4 col-4">
+    <div class="card card-orange card-outline">
+      <div class="card-body box-profile">
+        <div class="text-center">
+          <%= image_tag "dist/img/avatar5.png", class: "profile-user-img img-fluid img-circle", alt: "Avatar do Usuário" %>
+        </div>
+        <h3 class="profile-username text-center">Usuário: <%= current_usuario.nome %></h3>
+        <%= button_to destroy_usuario_session_path, method: :delete, class: "btn btn-danger btn-block text-uppercase" do %>
+          <i class="fas fa-power-off"></i> Sair
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row text-uppercase row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 row-cols-xxl-3">
+  <div class="col">
+    <%= link_to admin_root_path, class: '' do %>
+      <div class="card card-orange card-outline">
+        <div class="card-header text-center">
+          <%= image_tag "dist/img/admin.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
+        </div>
+        <div class="card-body text-center bg-orange">
+          <p class="card-text">Administração</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col">
+    <%= link_to admin_root_path, class: '' do %>
+      <div class="card card-orange card-outline">
+        <div class="card-header text-center">
+          <%= image_tag "dist/img/admin.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
+        </div>
+        <div class="card-body text-center bg-orange">
+          <p class="card-text">Administração</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col">
+    <%= link_to admin_root_path, class: '' do %>
+      <div class="card card-orange card-outline">
+        <div class="card-header text-center">
+          <%= image_tag "dist/img/admin.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
+        </div>
+        <div class="card-body text-center bg-orange">
+          <p class="card-text">Administração</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col">
+    <%= link_to admin_root_path, class: '' do %>
+      <div class="card card-orange card-outline">
+        <div class="card-header text-center">
+          <%= image_tag "dist/img/admin.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
+        </div>
+        <div class="card-body text-center bg-orange">
+          <p class="card-text">Administração</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col">
+    <%= link_to admin_root_path, class: '' do %>
+      <div class="card card-orange card-outline">
+        <div class="card-header text-center">
+          <%= image_tag "dist/img/admin.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
+        </div>
+        <div class="card-body text-center bg-orange">
+          <p class="card-text">Administração</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col">
+    <%= link_to admin_root_path, class: '' do %>
+      <div class="card card-orange card-outline">
+        <div class="card-header text-center">
+          <%= image_tag "dist/img/admin.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
+        </div>
+        <div class="card-body text-center bg-orange">
+          <p class="card-text">Administração</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

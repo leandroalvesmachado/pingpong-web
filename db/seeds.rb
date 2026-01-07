@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Usuario.find_or_create_by!(email: "leandroalvesmachado@gmail.com") do |usuario|
+  usuario.nome = "Leandro Alves Machado"
+  usuario.password = "P@ssword"
+  usuario.password_confirmation = "P@ssword"
+  usuario.confirmed_at = Time.current if usuario.respond_to?(:confirmed_at)
+end
