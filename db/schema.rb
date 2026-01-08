@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_12_30_143305) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_08_024155) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "perfis", force: :cascade do |t|
+    t.boolean "ativo", default: true, null: false
+    t.integer "codigo", null: false
+    t.datetime "created_at", null: false
+    t.bigint "created_by", null: false
+    t.datetime "deleted_at"
+    t.bigint "deleted_by"
+    t.text "descricao", null: false
+    t.string "nome", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "updated_by", null: false
+    t.index ["codigo"], name: "index_perfis_on_codigo", unique: true
+    t.index ["deleted_at"], name: "index_perfis_on_deleted_at"
+  end
 
   create_table "usuarios", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -31,4 +46,25 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_30_143305) do
     t.index ["email"], name: "index_usuarios_on_email", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
+
+  create_table "usuarios_perfis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "created_by", null: false
+    t.datetime "deleted_at"
+    t.bigint "deleted_by"
+    t.bigint "perfil_id", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "updated_by", null: false
+    t.bigint "usuario_id", null: false
+    t.index ["deleted_at"], name: "index_usuarios_perfis_on_deleted_at"
+  end
+
+  add_foreign_key "perfis", "usuarios", column: "created_by"
+  add_foreign_key "perfis", "usuarios", column: "deleted_by"
+  add_foreign_key "perfis", "usuarios", column: "updated_by"
+  add_foreign_key "usuarios_perfis", "perfis", column: "perfil_id"
+  add_foreign_key "usuarios_perfis", "usuarios"
+  add_foreign_key "usuarios_perfis", "usuarios", column: "created_by"
+  add_foreign_key "usuarios_perfis", "usuarios", column: "deleted_by"
+  add_foreign_key "usuarios_perfis", "usuarios", column: "updated_by"
 end
