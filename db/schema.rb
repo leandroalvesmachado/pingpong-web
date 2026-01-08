@@ -10,9 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_08_024155) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_08_123211) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "estados", force: :cascade do |t|
+    t.boolean "ativo", default: true, null: false
+    t.datetime "created_at", null: false
+    t.bigint "created_by", null: false
+    t.datetime "deleted_at"
+    t.bigint "deleted_by"
+    t.string "nome", null: false
+    t.bigint "pais_id", null: false
+    t.string "sigla", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "updated_by", null: false
+    t.index ["deleted_at"], name: "index_estados_on_deleted_at"
+    t.index ["sigla", "pais_id"], name: "index_estados_on_sigla_and_pais_id", unique: true
+  end
+
+  create_table "municipios", force: :cascade do |t|
+    t.boolean "ativo", default: true, null: false
+    t.datetime "created_at", null: false
+    t.bigint "created_by", null: false
+    t.datetime "deleted_at"
+    t.bigint "deleted_by"
+    t.bigint "estado_id", null: false
+    t.string "nome", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "updated_by", null: false
+    t.index ["deleted_at"], name: "index_municipios_on_deleted_at"
+  end
+
+  create_table "paises", force: :cascade do |t|
+    t.boolean "ativo", default: true, null: false
+    t.datetime "created_at", null: false
+    t.bigint "created_by", null: false
+    t.datetime "deleted_at"
+    t.bigint "deleted_by"
+    t.string "nome", null: false
+    t.string "sigla", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "updated_by", null: false
+    t.index ["deleted_at"], name: "index_paises_on_deleted_at"
+    t.index ["sigla"], name: "index_paises_on_sigla", unique: true
+  end
 
   create_table "perfis", force: :cascade do |t|
     t.boolean "ativo", default: true, null: false
@@ -59,6 +101,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_08_024155) do
     t.index ["deleted_at"], name: "index_usuarios_perfis_on_deleted_at"
   end
 
+  add_foreign_key "estados", "paises", column: "pais_id"
+  add_foreign_key "estados", "usuarios", column: "created_by"
+  add_foreign_key "estados", "usuarios", column: "deleted_by"
+  add_foreign_key "estados", "usuarios", column: "updated_by"
+  add_foreign_key "municipios", "estados"
+  add_foreign_key "municipios", "usuarios", column: "created_by"
+  add_foreign_key "municipios", "usuarios", column: "deleted_by"
+  add_foreign_key "municipios", "usuarios", column: "updated_by"
+  add_foreign_key "paises", "usuarios", column: "created_by"
+  add_foreign_key "paises", "usuarios", column: "deleted_by"
+  add_foreign_key "paises", "usuarios", column: "updated_by"
   add_foreign_key "perfis", "usuarios", column: "created_by"
   add_foreign_key "perfis", "usuarios", column: "deleted_by"
   add_foreign_key "perfis", "usuarios", column: "updated_by"

@@ -8,7 +8,7 @@ class CreatePerfis < ActiveRecord::Migration[8.1]
       t.bigint :created_by, null: false
       t.bigint :updated_by, null: false
       t.bigint :deleted_by, null: true
-      
+
       t.timestamps
       t.datetime :deleted_at
     end

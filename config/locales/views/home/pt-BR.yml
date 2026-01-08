@@ -1,0 +1,8 @@
+pt-BR:
+  views:
+    home:
+      index:
+        logout: "Sair"
+        administration: "Administração"
+        athlete: "Atleta"
+        club: "Clube"
