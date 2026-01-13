@@ -1,6 +1,7 @@
 class Admin::EstadosController < AdminController
   def index
-    @pagy, @estados = pagy(Estado.order(:nome))
+    query = Admin::Estados::SearchQuery.new(params).call
+    @pagy, @estados = pagy(query)
   end
 
   def new

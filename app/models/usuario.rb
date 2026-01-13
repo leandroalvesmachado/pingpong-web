@@ -6,7 +6,26 @@ class Usuario < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable
 
-  has_many :perfis, class_name: "UsuarioPerfil", foreign_key: "usuario_id", dependent: :destroy
+  has_many :usuarios_perfis,
+           class_name: "UsuarioPerfil",
+           foreign_key: "usuario_id",
+           dependent: :destroy
 
-  default_scope { includes(:perfis) }
+  has_many :perfis,
+           through: :usuarios_perfis,
+           source: :perfil
+
+  default_scope { includes(:usuarios_perfis) }
+
+  def admin?
+    perfis.exists?(codigo: Perfil::ADMIN)
+  end
+
+  def atleta?
+    perfis.exists?(codigo: Perfil::ATLETA)
+  end
+
+  def clube?
+    perfis.exists?(codigo: Perfil::CLUBE)
+  end
 end

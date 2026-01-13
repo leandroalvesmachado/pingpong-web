@@ -1,3 +1,15 @@
+<%= render partial: "form_search", locals: { zone: nil } %>
+
+<% if policy(Estado).new? %>
+  <div class="row mb-3">
+    <div class="col-md-2 offset-md-10">
+      <%= link_to new_admin_estado_path, class: 'btn btn-primary btn-block text-uppercase font-weight-bold' do %>
+        <i class="fas fa-plus-circle"></i> <%= t('views.admin.antipulgas.title.singular') %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
 <%= render TableComponent.new(
   title: t("views.admin.estados.index.table.title"),
   subtitle: t("views.admin.estados.index.table.subtitle"),

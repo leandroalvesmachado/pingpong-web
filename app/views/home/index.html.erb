@@ -7,8 +7,8 @@
         </div>
         <h3 class="profile-username text-center"><%= current_usuario.nome %></h3>
         <p class="text-muted text-center text-uppercase">
-          <% if current_usuario.perfis.any? %>
-            Perfil: <%= current_usuario.perfis.first.perfil.nome %>
+          <% if current_usuario.usuarios_perfis.any? %>
+            Perfil: <%= current_usuario.usuarios_perfis.first.perfil.nome %>
           <% end %>
         </p>
         <%= button_to destroy_usuario_session_path, method: :delete, class: "btn btn-danger btn-block text-uppercase font-weight-bold" do %>

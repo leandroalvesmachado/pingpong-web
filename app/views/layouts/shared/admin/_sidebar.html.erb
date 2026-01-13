@@ -16,12 +16,14 @@
     </div>
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item text-uppercase font-weight-bold">
-          <%= link_to admin_estados_path, class: "nav-link" + (current_page?(admin_estados_path) ? " active" : "") do %>
-            <i class="nav-icon fas fa-tachometer-alt"></i>
-            <p>Estados</p>
-          <% end %>
-        </li>
+        <% if policy(Estado).index? %>
+          <li class="nav-item text-uppercase font-weight-bold">
+            <%= link_to admin_estados_path, class: "nav-link" + (current_page?(admin_estados_path) ? " active" : "") do %>
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Estados</p>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </div>
