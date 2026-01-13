@@ -77,7 +77,7 @@ gem "dotenv", "~> 3.2"
 gem "devise", "~> 4.9", ">= 4.9.4"
 
 # A framework for building reusable, testable & encapsulated view components in Ruby on Rails.
-gem "view_component", "~> 4.1", ">= 4.1.1"
+gem "view_component", "~> 4.2"
 
 # Agnostic pagination in plain ruby.
 gem "pagy", "~> 43.2", ">= 43.2.4"
