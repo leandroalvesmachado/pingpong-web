@@ -8,10 +8,4 @@ class Admin::Estados::CreateForm < ApplicationForm
       nome: nome
     }
   end
-
-  def submit
-    return false unless valid?
-
-    true
-  end
 end

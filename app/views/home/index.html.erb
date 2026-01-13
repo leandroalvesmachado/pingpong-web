@@ -1,6 +1,6 @@
 <div class="row">
   <div class="offset-4 col-4">
-    <div class="card card-red card-outline">
+    <div class="card card-lightblue card-outline">
       <div class="card-body box-profile">
         <div class="text-center">
           <%= image_tag "dist/img/avatar5.png", class: "profile-user-img img-fluid img-circle", alt: "Avatar do Usuário" %>
@@ -22,11 +22,11 @@
 <div class="row text-uppercase row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 row-cols-xxl-3">
   <div class="col">
     <%= link_to admin_root_path, class: '' do %>
-      <div class="card card-red card-outline">
+      <div class="card card-lightblue card-outline">
         <div class="card-header text-center">
           <%= image_tag "dist/img/admin.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
         </div>
-        <div class="card-body text-center bg-red">
+        <div class="card-body text-center bg-lightblue">
           <p class="card-text font-weight-bold"><%= t('views.home.index.administration') %></p>
         </div>
       </div>
@@ -34,11 +34,11 @@
   </div>
   <div class="col">
     <%= link_to admin_root_path, class: '' do %>
-      <div class="card card-red card-outline">
+      <div class="card card-lightblue card-outline">
         <div class="card-header text-center">
-          <%= image_tag "dist/img/admin.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
+          <%= image_tag "dist/img/atleta.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
         </div>
-        <div class="card-body text-center bg-red">
+        <div class="card-body text-center bg-lightblue">
           <p class="card-text font-weight-bold"><%= t('views.home.index.athlete') %></p>
         </div>
       </div>
@@ -46,12 +46,24 @@
   </div>
   <div class="col">
     <%= link_to admin_root_path, class: '' do %>
-      <div class="card card-red card-outline">
+      <div class="card card-lightblue card-outline">
         <div class="card-header text-center">
-          <%= image_tag "dist/img/admin.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
+          <%= image_tag "dist/img/clube.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
         </div>
-        <div class="card-body text-center bg-red">
+        <div class="card-body text-center bg-lightblue">
           <p class="card-text font-weight-bold"><%= t('views.home.index.club') %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col">
+    <%= link_to admin_root_path, class: '' do %>
+      <div class="card card-lightblue card-outline">
+        <div class="card-header text-center">
+          <%= image_tag "dist/img/torneio.png", class: "img-fluid", style:"width: 25%;", alt: "Logo" %>
+        </div>
+        <div class="card-body text-center bg-lightblue">
+          <p class="card-text font-weight-bold"><%= t('views.home.index.tournament') %></p>
         </div>
       </div>
     <% end %>

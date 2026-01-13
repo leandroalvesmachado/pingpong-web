@@ -4,18 +4,16 @@ class Admin::Estados::CreateService < ApplicationService
   end
 
   def call
-    return failure(@form.errors.full_messages) unless @form.valid?
+    return failure(nil) unless @form.valid?
 
-    estado = nil
+    estado = Estado.new(@form.to_attributes)
 
-    ActiveRecord::Base.transaction do
-      estado = Estado.create!(@form.to_attributes)
+    if estado.save
+      success(estado)
+    else
+      failure("Erro ao salvar estado")
     end
-
-    success(estado)
-  rescue ActiveRecord::RecordInvalid => e
-    failure(e.record.errors.full_messages)
   rescue StandardError => e
-    failure("Erro inesperado ao criar estado")
+    failure("Erro inesperado ao criar estado: #{e}")
   end
 end

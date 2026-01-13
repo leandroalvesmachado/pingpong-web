@@ -19,3 +19,15 @@ document.addEventListener("turbo:load", () => {
     }, 500);
   }
 });
+
+document.addEventListener("turbo:render", () => {
+  const $preloader = document.querySelector(".preloader");
+  if ($preloader) {
+    setTimeout(() => {
+      $preloader.style.height = '0';
+      setTimeout(() => {
+        $preloader.style.display = 'none';
+      }, 200);
+    }, 500);
+  }
+});

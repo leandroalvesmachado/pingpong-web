@@ -1,0 +1,13 @@
+pt-BR:
+  views:
+    admin:
+      estados:
+        index:
+          table:
+            title: "Estados"
+            subtitle: "Listagem"
+            header:
+              pais: "País"
+              nome: "Nome"
+              sigla: "Sigla"
+              acoes: "Ações"

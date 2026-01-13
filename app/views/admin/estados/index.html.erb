@@ -1,0 +1,22 @@
+<%= render TableComponent.new(
+  title: t("views.admin.estados.index.table.title"),
+  subtitle: t("views.admin.estados.index.table.subtitle"),
+  headers: [
+    t("views.admin.estados.index.table.header.pais"),
+    t("views.admin.estados.index.table.header.nome"),
+    t("views.admin.estados.index.table.header.sigla"),
+    t("views.admin.estados.index.table.header.acoes")
+  ],
+  records: @estados,
+  pagination: @pagy
+) do %>
+  <% @estados.each do |estado| %>
+    <tr class="text-center">
+      <td class="align-middle"><%= estado.pais.nome %></td>
+      <td class="align-middle"><%= estado.nome %></td>
+      <td class="align-middle"><%= estado.sigla %></td>
+      <td class="align-middle">
+      </td>
+    </tr>
+  <% end %>
+<% end %>
