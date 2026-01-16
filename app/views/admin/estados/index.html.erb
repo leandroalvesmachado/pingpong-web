@@ -28,6 +28,9 @@
       <td class="align-middle"><%= estado.nome %></td>
       <td class="align-middle"><%= estado.sigla %></td>
       <td class="align-middle">
+        <%= link_to edit_admin_estado_path(estado), class: 'btn btn-primary text-uppercase font-weight-bold' do %>
+          <i class="fas fa-edit"></i> Editar
+        <% end %>
       </td>
     </tr>
   <% end %>

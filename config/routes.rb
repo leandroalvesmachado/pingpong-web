@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :testes
+  end
   # devise_for :usuarios
 
   devise_for :usuarios,
@@ -26,6 +29,9 @@ Rails.application.routes.draw do
   root "home#index"
 
   Rails.application.routes.draw do
+  namespace :admin do
+    resources :testes
+  end
     draw :admin
   end
 end
