@@ -1,5 +1,5 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4 bg-red">
-  <%= link_to admin_root_path, class: "brand-link bg-red" do %>
+<aside class="main-sidebar sidebar-dark-primary elevation-4 bg-dark">
+  <%= link_to admin_root_path, class: "brand-link bg-dark" do %>
     <%= image_tag "dist/img/AdminLTELogo.png", class: "brand-image img-circle elevation-3", alt: "Logo", style: "" %>
     <span class="brand-text font-weight-bold text-uppercase">
       Ping-pong
@@ -18,7 +18,7 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <% if policy(Estado).index? %>
           <li class="nav-item text-uppercase font-weight-bold">
-            <%= link_to admin_estados_path, class: "nav-link" + (current_page?(admin_estados_path) ? " active" : "") do %>
+            <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao/estados')}" do %>
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Estados</p>
             <% end %>

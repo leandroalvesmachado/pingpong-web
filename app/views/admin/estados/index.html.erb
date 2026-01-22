@@ -1,10 +1,17 @@
+<%= render(
+  BreadcrumbComponent.new(
+    icon: "fas fa-upload",
+    title: "Estados"
+  )
+) %>
+
 <%= render partial: "form_search", locals: { zone: nil } %>
 
 <% if policy(Estado).new? %>
   <div class="row mb-3">
     <div class="col-md-2 offset-md-10">
       <%= link_to new_admin_estado_path, class: 'btn btn-primary btn-block text-uppercase font-weight-bold' do %>
-        <i class="fas fa-plus-circle"></i> <%= t('views.admin.antipulgas.title.singular') %>
+        <i class="fas fa-plus-circle"></i> <%= t('views.admin.estados.index.action.new') %>
       <% end %>
     </div>
   </div>
@@ -17,6 +24,7 @@
     t("views.admin.estados.index.table.header.pais"),
     t("views.admin.estados.index.table.header.nome"),
     t("views.admin.estados.index.table.header.sigla"),
+    t("views.admin.estados.index.table.header.ativo"),
     t("views.admin.estados.index.table.header.acoes")
   ],
   records: @estados,
@@ -28,8 +36,17 @@
       <td class="align-middle"><%= estado.nome %></td>
       <td class="align-middle"><%= estado.sigla %></td>
       <td class="align-middle">
-        <%= link_to edit_admin_estado_path(estado), class: 'btn btn-primary text-uppercase font-weight-bold' do %>
-          <i class="fas fa-edit"></i> Editar
+        <%= render BadgeComponent.new(boolean: estado.ativo) %>
+      </td>
+      <td class="align-middle">
+        <%= link_to admin_estado_path(estado), class: "btn btn-primary btn-sm font-weight-bold", title: t("views.admin.estados.index.table.action.show") do %>
+          <i class="fas fa-folder"></i>
+        <% end %>
+        <%= link_to edit_admin_estado_path(estado), class: "btn btn-info btn-sm font-weight-bold", title: t("views.admin.estados.index.table.action.edit") do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to admin_estado_path(estado), class: "btn btn-danger btn-sm font-weight-bold", title: t("views.admin.estados.index.table.action.destroy") do %>
+          <i class="fas fa-trash"></i>
         <% end %>
       </td>
     </tr>

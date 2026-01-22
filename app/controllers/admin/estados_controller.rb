@@ -2,7 +2,8 @@ class Admin::EstadosController < AdminController
   before_action :set_estado, only: %i[ show edit update destroy ]
 
   def index
-    query = Admin::Estados::SearchQuery.new(params).call
+    @form = Admin::Estados::SearchForm.new(params.fetch(:q, {}))
+    query = Admin::Estados::SearchQuery.new(@form).call
     @pagy, @estados = pagy(query)
   end
 

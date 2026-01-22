@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class FormSearchComponent < ViewComponent::Base
+class FormComponent < ViewComponent::Base
   def initialize(
     form:,
     url:,
-    method: :get
+    method: :post
   )
     @form = form
     @url = url

@@ -3,6 +3,8 @@ pt-BR:
     admin:
       estados:
         index:
+          action:
+            new: "Estado"
           table:
             title: "Estados"
             subtitle: "Listagem"
@@ -10,4 +12,9 @@ pt-BR:
               pais: "País"
               nome: "Nome"
               sigla: "Sigla"
+              ativo: "Ativo"
               acoes: "Ações"
+            action:
+              show: "Visualizar"
+              edit: "Editar"
+              destroy: "Deletar"

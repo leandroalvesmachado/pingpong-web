@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row mb-2">
+    <div class="col-sm-6">
+      <h4>
+        <% if @icon.present? %>
+          <i class="<%= @icon %>"></i>
+        <% end %>
+        <% if @title.present? %>
+          <%= @title %>
+        <% end %>
+      </h4>
+    </div>
+
+    <% if @breadcrumbs.any? %>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <% @breadcrumbs.each_with_index do |item, index| %>
+            <% last = index == @breadcrumbs.size - 1 %>
+            <li class="breadcrumb-item <%= 'active' if last %>">
+              <% if last || item[:path].blank? %>
+                <%= item[:label] %>
+              <% else %>
+                <%= link_to item[:label], item[:path] %>
+              <% end %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    <% end %>
+  </div>
+</div>

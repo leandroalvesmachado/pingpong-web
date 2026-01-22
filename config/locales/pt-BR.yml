@@ -1,4 +1,7 @@
 pt-BR:
+  labels:
+    active: "Ativo"
+    inactive: "Inativo"
   activerecord:
     errors:
       messages:

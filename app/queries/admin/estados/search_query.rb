@@ -1,17 +1,21 @@
 class Admin::Estados::SearchQuery
-  attr_reader :params
+  attr_reader :form, :model
 
-  def initialize(params = {}, model = Estado.all)
-    @params = params
+  def initialize(form, model = Estado.all)
+    @form = form
     @model = model
   end
 
   def call
-    apply_filters
-    apply_order
-    @model
+    scope = model
+
+    scope = by_nome(scope)
+    scope = by_sigla(scope)
+    scope = by_pais(scope)
+
+    apply_order(scope)
   rescue
-    @model.none
+    model.none
   end
 
   private
@@ -22,25 +26,25 @@ class Admin::Estados::SearchQuery
     by_pais
   end
 
-  def by_nome
-    return if params[:nome].blank?
+  def by_nome(scope)
+    return scope if form.nome.blank?
 
-    @model = @model.where("estados.nome ILIKE ?", "%#{params[:nome]}%")
+    scope.where("estados.nome ILIKE ?", "%#{form.nome}%")
   end
 
-  def by_sigla
-    return if params[:sigla].blank?
+  def by_sigla(scope)
+    return scope if form.sigla.blank?
 
-    @model = @model.where(sigla: params[:sigla])
+    scope.where(sigla: form.sigla)
   end
 
-  def by_pais
-    return if params[:pais_id].blank?
+  def by_pais(scope)
+    return scope if form.pais_id.blank?
 
-    @model = @model.where(pais_id: params[:pais_id])
+    scope.where(pais_id: form.pais_id)
   end
 
-  def apply_order
-    @model = @model.order(:nome)
+  def apply_order(scope)
+    scope.order(:nome)
   end
 end

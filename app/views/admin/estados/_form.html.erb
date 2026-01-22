@@ -1,15 +1,17 @@
-<%= form_with model: @form, url: url, method: method do |form| %>
+<!--
+<%#= form_with model: @form, url: url, method: method do |form| %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= form.label :nome %>
-        <%= form.text_field :nome,
+        <%#= form.label :nome %>
+        <%#= form.text_field :nome,
           class: "form-control #{'is-invalid' if form.object.errors[:nome].any?}"
         %>
-        <span class="text-danger"><%= form.object.errors[:nome].first %></span>
+        <span class="text-danger"><%#= form.object.errors[:nome].first %></span>
       </div>
     </div>
   </div>
 
-  <%= form.submit "Salvar" %>
-<% end %>
+  <%#= form.submit "Salvar" %>
+<%# end %>
+-->
