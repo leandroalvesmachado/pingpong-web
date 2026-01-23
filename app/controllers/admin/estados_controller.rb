@@ -1,8 +1,11 @@
 class Admin::EstadosController < AdminController
+  include SelectPaises
+  before_action :select_paises, only: %i[ index new edit ]
   before_action :set_estado, only: %i[ show edit update destroy ]
 
   def index
-    @form = Admin::Estados::SearchForm.new(params.fetch(:q, {}))
+    puts params.inspect
+    @form = Admin::Estados::SearchForm.new(search_params)
     query = Admin::Estados::SearchQuery.new(@form).call
     @pagy, @estados = pagy(query)
   end
@@ -48,6 +51,10 @@ class Admin::EstadosController < AdminController
   end
 
   private
+
+  def search_params
+    params.fetch(:q, {}).permit(:nome, :sigla, :pais_id)
+  end
 
   def set_estado
     @estado = Estado.find(params[:id])

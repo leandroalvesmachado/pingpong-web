@@ -1,1 +1,7 @@
-<div>Add FormSearch template here</div>
+<%= form_with url: @url, method: @method, local: true, class: "mb-3", id: "form-search" do |f| %>
+  <% @form_search = f %>
+  <%= content %>
+  <div class="col-md-3 d-flex align-items-end gap-2">
+    <%= f.submit "Pesquisar", name: nil, class: "btn btn-primary" %>
+  </div>
+<% end %>

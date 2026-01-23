@@ -1,34 +1,18 @@
-<%= form_with model: @form,
-              url: admin_estados_path,
-              method: :get,
-              local: true,
-              class: "mb-3" do |f| %>
-
+<%= render FormSearchComponent.new(
+  url: admin_estados_path
+) do |f| %>
   <div class="row">
     <div class="col-md-4">
-      <%= f.label :nome, "Nome" %>
-      <%= f.text_field :nome, class: "form-control" %>
+      <%= f.form_search.label :nome, "Nome" %>
+      <%= f.form_search.text_field :nome, class: "form-control" %>
     </div>
-
     <div class="col-md-2">
-      <%= f.label :sigla, "Sigla" %>
-      <%= f.text_field :sigla, class: "form-control" %>
+      <%= f.form_search.label :sigla, "Sigla" %>
+      <%= f.form_search.text_field :sigla, class: "form-control" %>
     </div>
-
     <div class="col-md-3">
-      <%= f.label :pais_id, "País" %>
-      <%= f.select :pais_id,
-            options_from_collection_for_select(
-              Pais.all, :id, :nome, @form.pais_id
-            ),
-            { include_blank: "Todos" },
-            class: "form-control" %>
-    </div>
-
-    <div class="col-md-3 d-flex align-items-end gap-2">
-      <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
-      <%= link_to "Limpar", admin_estados_path, class: "btn btn-secondary" %>
+      <%= f.form_search.label :pais_id, "País" %>
+      <%= f.form_search.select :pais_id, @paises, { selected: params[:pais_id] }, class: "form-control" %>
     </div>
   </div>
-
 <% end %>
