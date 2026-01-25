@@ -1,14 +1,16 @@
 <%= render FormSearchComponent.new(
+  title: "Estados",
+  subtitle: "Pesquisa",
   url: admin_estados_path
 ) do |f| %>
   <div class="row">
     <div class="col-md-4">
       <%= f.form_search.label :nome, "Nome" %>
-      <%= f.form_search.text_field :nome, class: "form-control" %>
+      <%= f.form_search.text_field :nome, class: "form-control", value: params[:nome] %>
     </div>
     <div class="col-md-2">
       <%= f.form_search.label :sigla, "Sigla" %>
-      <%= f.form_search.text_field :sigla, class: "form-control" %>
+      <%= f.form_search.text_field :sigla, class: "form-control", value: params[:sigla] %>
     </div>
     <div class="col-md-3">
       <%= f.form_search.label :pais_id, "País" %>

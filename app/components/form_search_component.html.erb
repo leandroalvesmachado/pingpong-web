@@ -1,7 +1,19 @@
-<%= form_with url: @url, method: @method, local: true, class: "mb-3", id: "form-search" do |f| %>
-  <% @form_search = f %>
-  <%= content %>
-  <div class="col-md-3 d-flex align-items-end gap-2">
-    <%= f.submit "Pesquisar", name: nil, class: "btn btn-primary" %>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title font-weight-bold text-uppercase">
+      <%= @title.present? ? @title : '' %>
+      <span class="badge badge-secondary"><%= @subtitle.present? ? @subtitle : '' %></span>
+    </h3>
   </div>
-<% end %>
+  <%= form_with url: @url, method: @method, local: true, class: "", id: "form-search" do |f| %>
+  <div class="card-body">
+    <% @form_search = f %>
+    <%= content %>
+  </div>
+  <div class="card-footer bg-transparent border-top">
+    <div class="row justify-content-end">
+      <%= f.submit "Pesquisar", name: nil, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+</div>

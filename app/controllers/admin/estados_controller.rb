@@ -53,7 +53,8 @@ class Admin::EstadosController < AdminController
   private
 
   def search_params
-    params.fetch(:q, {}).permit(:nome, :sigla, :pais_id)
+    params
+      .permit(:nome, :sigla, :pais_id)
   end
 
   def set_estado
