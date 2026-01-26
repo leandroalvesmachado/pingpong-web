@@ -22,7 +22,7 @@ class Admin::EstadosController < AdminController
   end
 
   def create
-    @form = Admin::Estados::CreateForm.new(estado_params)
+    @form = Admin::Estados::CreateForm.new(create_estado_params)
     result = Admin::Estados::CreateService.call(@form)
 
     if result.success?
@@ -61,7 +61,7 @@ class Admin::EstadosController < AdminController
     @estado = Estado.find(params[:id])
   end
 
-  def estado_params
+  def create_estado_params
     params
       .require(:admin_estados_create_form)
       .permit(:nome)

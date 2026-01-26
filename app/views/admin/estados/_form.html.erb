@@ -3,13 +3,14 @@
   subtitle: subtitle,
   url: url,
   form: form,
-  method: method
-) do |f| %>
+  method: method,
+  submit_text: submit_text
+) do |form_create| %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.form_with.label :nome, "Nome" %>
-        <%= f.text_field :nome, class: "form-control" %>
+        <%= form_create.label :nome, "Nome" %>
+        <%= form_create.text_field :nome, class: "form-control" %>
       </div>
     </div>
   </div>

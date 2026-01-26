@@ -38,6 +38,8 @@
         <%= render BadgeComponent.new(boolean: estado.ativo) %>
       </td>
       <td class="align-middle">
+        <% content_for :modal do %>
+        <% end %>
         <%= link_to admin_estado_path(estado), class: "btn btn-primary btn-sm font-weight-bold", title: t("views.admin.estados.index.table.action.show") do %>
           <i class="fas fa-folder"></i>
         <% end %>

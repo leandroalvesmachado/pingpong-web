@@ -5,13 +5,12 @@
       <span class="badge badge-secondary"><%= subtitle.present? ? subtitle : '' %></span>
     </h3>
   </div>
-  <%= form_with model: form, url: url, method: method, local: false, id: "form" do |f| %>
+  <%= form_with model: form, url: url, method: method, local: false do |f| %>
     <div class="card-body">
-      <% @form_with = f %>
       <%= content %>
     </div>
     <div class="card-footer border-top">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary"><%= submit_text.present? ? submit_text : '-' %></button>
     </div>
   <% end %>
 </div>
