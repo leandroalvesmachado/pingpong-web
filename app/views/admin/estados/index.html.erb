@@ -1,10 +1,8 @@
 <%= render BreadcrumbComponent.new(
-    icon: "fas fa-upload",
+    icon: "fas fa-map",
     title: "Estados"
   )
 %>
-
-<%= render partial: "form_search", locals: { zone: nil } %>
 
 <% if policy(Estado).new? %>
   <div class="row mb-3">
@@ -15,6 +13,8 @@
     </div>
   </div>
 <% end %>
+
+<%= render partial: "form_search", locals: { zone: nil } %>
 
 <%= render TableComponent.new(
   title: t("views.admin.estados.index.table.title"),

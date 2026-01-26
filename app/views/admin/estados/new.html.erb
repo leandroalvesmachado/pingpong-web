@@ -1,7 +1,18 @@
-<h1>Novo Estado</h1>
+<%= render BreadcrumbComponent.new(
+    icon: "fas fa-map",
+    title: "Novo Estado",
+    breadcrumbs: [
+      { label: 'Estados', path: admin_estados_path },
+      { label: 'Novo Estado', path: '#' }
+    ]
+  )
+%>
 
-<%= render "form",
-  form: @form,
-  url: create_admin_estados_path,
-  method: :post
+<%= render partial: "form", locals: {
+    title: "Estado",
+    subtitle: "Novo",
+    form: @form,
+    url: admin_estados_path,
+    method: "post"
+  } 
 %>

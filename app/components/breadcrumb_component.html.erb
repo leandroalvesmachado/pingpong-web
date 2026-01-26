@@ -1,19 +1,19 @@
-<div class="container-fluid">
+<div class="container-fluid text-uppercase">
   <div class="row mb-2">
     <div class="col-sm-6">
-      <h4>
+      <h6>
         <% if @icon.present? %>
           <i class="<%= @icon %>"></i>
         <% end %>
         <% if @title.present? %>
           <%= @title %>
         <% end %>
-      </h4>
+      </h6>
     </div>
 
     <% if @breadcrumbs.any? %>
       <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
+        <ol class="breadcrumb float-sm-right font-size-12">
           <% @breadcrumbs.each_with_index do |item, index| %>
             <% last = index == @breadcrumbs.size - 1 %>
             <li class="breadcrumb-item <%= 'active' if last %>">

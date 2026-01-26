@@ -19,8 +19,24 @@
         <% if policy(Estado).index? %>
           <li class="nav-item text-uppercase font-weight-bold">
             <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao/estados')}" do %>
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-map"></i>
               <p>Estados</p>
+            <% end %>
+          </li>
+        <% end %>
+        <% if policy(Estado).index? %>
+          <li class="nav-item text-uppercase font-weight-bold">
+            <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao/municipios')}" do %>
+              <i class="nav-icon fas fa-city"></i>
+              <p>Municípios</p>
+            <% end %>
+          </li>
+        <% end %>
+        <% if policy(Estado).index? %>
+          <li class="nav-item text-uppercase font-weight-bold">
+            <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao/paises')}" do %>
+              <i class="nav-icon fas fa-globe"></i>
+              <p>Países</p>
             <% end %>
           </li>
         <% end %>

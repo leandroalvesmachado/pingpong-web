@@ -1,4 +1,5 @@
 class Estado < ApplicationRecord
+  acts_as_paranoid
   self.table_name = "estados"
 
   belongs_to :pais, class_name: "Pais", foreign_key: "pais_id", optional: true

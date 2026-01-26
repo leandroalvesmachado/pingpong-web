@@ -5,15 +5,21 @@
       <span class="badge badge-secondary"><%= @subtitle.present? ? @subtitle : '' %></span>
     </h3>
   </div>
-  <%= form_with url: @url, method: @method, local: true, class: "", id: "form-search" do |f| %>
-  <div class="card-body">
-    <% @form_search = f %>
-    <%= content %>
-  </div>
-  <div class="card-footer bg-transparent border-top">
-    <div class="row justify-content-end">
-      <%= f.submit "Pesquisar", name: nil, class: "btn btn-primary" %>
+  <%= form_with url: @url, method: @method, local: false, class: "", id: "form-search" do |f| %>
+    <div class="card-body">
+      <% @form_search = f %>
+      <%= content %>
     </div>
-  </div>
+    <div class="card-footer border-top">
+      <div class="row justify-content-end">
+        <div class="col-2">
+        </div>
+        <div class="col-2">
+          <%= button_tag(type: "submit", class: "btn btn-primary btn-block text-uppercase font-weight-bold") do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>

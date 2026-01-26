@@ -1,17 +1,17 @@
-<!--
-<%#= form_with model: @form, url: url, method: method do |form| %>
+<%= render FormComponent.new(
+  title: title,
+  subtitle: subtitle,
+  url: url,
+  form: form,
+  method: method
+) do |f| %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%#= form.label :nome %>
-        <%#= form.text_field :nome,
-          class: "form-control #{'is-invalid' if form.object.errors[:nome].any?}"
-        %>
-        <span class="text-danger"><%#= form.object.errors[:nome].first %></span>
+        <%= f.form_with.label :nome, "Nome" %>
+        <%= f.text_field :nome, class: "form-control" %>
       </div>
     </div>
   </div>
+<% end %>
 
-  <%#= form.submit "Salvar" %>
-<%# end %>
--->

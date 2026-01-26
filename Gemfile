@@ -84,3 +84,6 @@ gem "pagy", "~> 43.2", ">= 43.2.4"
 
 # Object oriented authorization for Rails applications
 gem "pundit", "~> 2.5", ">= 2.5.2"
+
+# Soft delete
+gem "paranoia", "~> 3.1"
