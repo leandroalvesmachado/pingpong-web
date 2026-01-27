@@ -5,12 +5,13 @@
   form: form,
   method: method,
   submit_text: submit_text
-) do |form_create| %>
+) do |f| %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= form_create.label :nome, "Nome" %>
-        <%= form_create.text_field :nome, class: "form-control" %>
+        <%= f.form.label :nome, "Nome" %>
+        <%= f.form.text_field :nome, class: "form-control #{'is-invalid' if form.errors[:nome].any?}" %>
+        <span class="text-danger"><%= form.errors[:nome].first %></span>
       </div>
     </div>
   </div>

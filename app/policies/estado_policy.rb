@@ -4,10 +4,26 @@ class EstadoPolicy < ApplicationPolicy
   end
 
   def show?
-    false
+    admin?
   end
 
   def create?
+    admin?
+  end
+
+  def new?
+    admin?
+  end
+
+  def update?
+    admin?
+  end
+
+  def edit?
+    admin?
+  end
+
+  def destroy?
     admin?
   end
 

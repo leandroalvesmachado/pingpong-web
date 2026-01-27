@@ -18,6 +18,22 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <% if policy(Estado).index? %>
           <li class="nav-item text-uppercase font-weight-bold">
+            <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao')}" do %>
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Dashboard</p>
+            <% end %>
+          </li>
+        <% end %>
+        <% if policy(Estado).index? %>
+          <li class="nav-item text-uppercase font-weight-bold">
+            <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao/clubes')}" do %>
+              <i class="nav-icon fas fa-map"></i>
+              <p>Clubes</p>
+            <% end %>
+          </li>
+        <% end %>
+        <% if policy(Estado).index? %>
+          <li class="nav-item text-uppercase font-weight-bold">
             <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao/estados')}" do %>
               <i class="nav-icon fas fa-map"></i>
               <p>Estados</p>
@@ -37,6 +53,22 @@
             <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao/paises')}" do %>
               <i class="nav-icon fas fa-globe"></i>
               <p>Países</p>
+            <% end %>
+          </li>
+        <% end %>
+        <% if policy(Estado).index? %>
+          <li class="nav-item text-uppercase font-weight-bold">
+            <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao/perfis')}" do %>
+              <i class="nav-icon fas fa-globe"></i>
+              <p>Perfis</p>
+            <% end %>
+          </li>
+        <% end %>
+        <% if policy(Estado).index? %>
+          <li class="nav-item text-uppercase font-weight-bold">
+            <%= link_to admin_estados_path, class: "nav-link #{'active' if request.path.start_with?('/administracao/usuarios')}" do %>
+              <i class="nav-icon fa fa-user"></i>
+              <p>Usuários</p>
             <% end %>
           </li>
         <% end %>
