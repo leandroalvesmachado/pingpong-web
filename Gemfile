@@ -80,7 +80,7 @@ gem "devise", "~> 4.9", ">= 4.9.4"
 gem "view_component", "~> 4.1", ">= 4.1.1"
 
 # Agnostic pagination in plain ruby.
-gem "pagy", "~> 43.2", ">= 43.2.4"
+gem "pagy", "~> 43.2"
 
 # Object oriented authorization for Rails applications
 gem "pundit", "~> 2.5", ">= 2.5.2"
